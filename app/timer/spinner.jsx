@@ -3,7 +3,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-const CircularProgressWithLabel = ({value}) => {
+const CircularProgressWithLabel = ({ value }) => {
     return (
         <Box position="relative" display="inline-flex">
             <CircularProgress size={80} variant="static" value={value} />
@@ -21,13 +21,12 @@ const CircularProgressWithLabel = ({value}) => {
                     variant="caption"
                     component="div"
                     color="textSecondary"
-                    style={{fontSize: 20}
-                    }
+                    style={{ fontSize: 20 }}
                 >{`${Math.round(100 - value)}%`}</Typography>
             </Box>
         </Box>
     );
-}
+};
 
 export const Spinner = () => {
     const [progress, setProgress] = React.useState(0);
@@ -35,7 +34,7 @@ export const Spinner = () => {
     React.useEffect(() => {
         const timer = setInterval(() => {
             setProgress((prevProgress) =>
-                prevProgress >= 100 ? 0 : prevProgress + 10
+                prevProgress >= 100 ? 0 : prevProgress + 1
             );
         }, 800);
         return () => {
