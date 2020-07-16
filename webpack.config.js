@@ -1,8 +1,10 @@
+const path = require('path');
+
 module.exports = {
     context: __dirname,
     entry: './app/index.jsx',
     output: {
-        path: __dirname + '/dist/',
+        path: path.resolve(__dirname + '/dist/'),
         filename: 'bundle.js',
     },
     devtool: '#sourcemap',
@@ -29,7 +31,7 @@ module.exports = {
         ],
     },
     devServer: {
-        contentBase: __dirname,
+        contentBase: path.resolve(__dirname, 'dist'),
         compress: true,
         port: 9000,
     },
